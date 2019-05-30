@@ -1,0 +1,85 @@
+<!-- activity_detail.wxml-->
+<view class="container">
+  <view class="page-body">
+    <swiper class='swipeBox' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="rgba(255, 255, 255, 1)">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <navigator class='infoBox' url="../zhengwgkxq/index?id={{item.id}}" hover-class="navigator-hover">
+            <image src="{{item}}" mode="scaleToFill" class="slide-image" width="414" height="150" />
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='baseInfo clearfix'>
+      <view class='info'>
+        <text class='name'>{{baseInfo.name}}</text>
+        <text>{{baseInfo.name_en}}</text>
+      </view>
+      <view class='operationBox'>
+        <view class='collection' bindtap='collection' data-cid="{{baseInfo.cid}}" id="{{baseInfo.id}}">
+          <image src="../../static/images/collection.png" wx:if="{{baseInfo.isCollect}}" />
+          <image src="../../static/images/no_collection.png" wx:else/>
+          <text>{{baseInfo.isCollect ? language.collect : language.collected}}</text>
+        </view>
+        <navigator class='conmment' url="../activity_comment/index?id={{currenActivityId}}" hover-class="navigator-hover">
+          <image src="../../static/images/comments.png" />
+          <text>{{language.comments}}</text>
+        </navigator>
+      </view>
+    </view>
+    <view class='contentBox'>
+      <view style='padding: 32rpx 0 12rpx 0;border-bottom: 1px solid #ddd;margin-left: 54rpx;'>
+        <view class='title'>
+          <view class='title_icon'></view>
+          <text>{{language.activity_introduction}}</text>
+        </view>
+        <view class='formContent'>
+          <view>
+            <label>{{language.application_period}}:</label>
+            <text>{{baseInfo.registration_starttime}}-{{baseInfo.registration_endtime}}</text>
+          </view>
+          <view>
+            <label>{{language.activity_website}}:</label>
+            <text class='online'>{{baseInfo.website_url}}</text>
+          </view>
+        </view>
+      </view>
+      <view style='padding: 32rpx 0 12rpx 0;margin-left: 54rpx;'>
+        <view class='title' style='padding-bottom: 0;'>
+          <view class='title_icon' style='background-color: #60b17a'></view>
+          <text>{{language.student_comment}}（{{commentData.length}}{{language.pieces}}）</text>
+        </view>
+        <view>
+          <view class='conmmentBox' style='border-bottom: 1px solid #ddd;' wx:for="{{commentData}}" wx:key="{{index}}">
+            <image src="../../static/images/moren.png" class='commentator' />
+            <view style='display: inline-block;margin-left: 18rpx;'>
+              <text class='conmmentPeople'>{{item.name}}</text>
+              <text>{{item.update_time}}</text>
+            </view>
+            <text class='conmmentContent'>{{item.comment_details}}</text>
+            <view class='imgBox'>
+              <!-- <image class='event' data-list="{{eventPassingData[0].urlList}}" wx:for="{{eventPassingData[0].urlList}}" wx:key="*this" data-src='{{item}}' src="{{item}}" bindtap='imgBig' /> -->
+              <!-- <image src="../../static/images/school1.png" />
+              <image src="../../static/images/school2.png" />
+              <image src="../../static/images/school3.png" />
+              <image src="../../static/images/school4.png" />
+              <image src="../../static/images/school5.png" /> -->
+            </view>
+            <text style='display: inline-block;margin-left: 86rpx;'>{{language.browse}}{{item.view_count}}{{language.times}}</text>
+            <view class="fr" style='margin-right: 30rpx;'>
+              <view class='rightBox' style='margin-right: 60rpx;'>
+                <image src='../../static/images/pinglun.png' class='pinglun' />
+                <text>{{language.comments}}</text>
+              </view>
+              <view class='rightBox'>
+                <image src='../../static/images/no_zan.png' class='zan' />
+                <text>{{language.like}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='scrollBottomTips' wx:if="{{showBottomTips}}">没有更多了</view>
+  </view>
+</view>

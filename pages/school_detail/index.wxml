@@ -1,0 +1,222 @@
+<!--school_detail.wxml-->
+<view class="container">
+  <view class="page-body">
+    <swiper class='swipeBox' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="rgba(255, 255, 255, 1)">
+      <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+          <navigator class='infoBox' url="" hover-class="navigator-hover">
+            <image src="{{item}}" mode="scaleToFill" class="slide-image" width="414" height="150" />
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='baseInfo clearfix'>
+      <view class='info'>
+        <image src="{{sever + schoolData.school.image_url}}" />
+        <text class='name'>{{schoolData.school.name}}</text>
+        <text>{{schoolData.school.name_en}}</text>
+      </view>
+      <view class='operationBox'>
+        <view class='collection' bindtap='collection' data-cid="{{schoolData.school.cid}}" id="{{schoolData.school.id}}">
+          <image src="../../static/images/collection.png" wx:if="{{schoolData.school.isCollect}}" />
+          <image src="../../static/images/no_collection.png" wx:else/>
+          <text>{{schoolData.school.isCollect ? language.collect : language.collected}}</text>
+        </view>
+        <navigator class='conmment' url="../school_comment/index?id={{schoolId}}" hover-class="navigator-hover">
+          <image src="../../static/images/comments.png" />
+          <text>{{language.comments}}</text>
+        </navigator>
+      </view>
+    </view>
+    <view class='contentBox'>
+      <view style='padding: 32rpx 0 12rpx 0;border-bottom: 1px solid #ddd;margin-left: 54rpx;'>
+        <view class='title'>
+          <view class='title_icon'></view>
+          <text>{{language.general_information}}</text>
+        </view>
+        <view class='formContent'>
+          <view>
+            <label>{{language.ranking}}:</label>
+            <text>1</text>
+          </view>
+          <view>
+            <label>{{language.fee}}:</label>
+            <text>{{schoolData.school.tuition}}</text>
+          </view>
+          <view>
+            <label>{{language.category}}:</label>
+            <text>{{schoolData.school.property === 0 ? language.private : language.public}}</text>
+          </view>
+          <view>
+            <label>{{language.location}}:</label>
+            <text>{{schoolData.school.location}}</text>
+          </view>
+          <view>
+            <label>{{language.official_website}}:</label>
+            <text class='online'>{{schoolData.school.website_url}}</text>
+          </view>
+        </view>
+      </view>
+      <view style='padding: 32rpx 0 12rpx 0;border-bottom: 1px solid #ddd;margin-left: 54rpx;'>
+        <view class='title'>
+          <view class='title_icon' style='background-color: #60b17a'></view>
+          <text>{{language.teaching_information}}</text>
+        </view>
+        <view class='formContent clearfix'>
+          <view>
+            <label class='advantage'>{{language.advantage}}:</label>
+            <text class='advantageText'>{{schoolData.school.excellent_subject}}</text>
+          </view>
+          <view class='fl' style='margin-right: 200rpx;'>
+            <label>{{language.teacher_student}}:</label>
+            <text>{{schoolData.school.student_staff_ratio}}</text>
+          </view>
+          <view class='fl'>
+            <label>{{language.male_female}}:</label>
+            <text>{{schoolData.school.study_proportion}}</text>
+          </view>
+        </view>
+      </view>
+      <view style='padding: 32rpx 0 12rpx 0;border-bottom: 1px solid #ddd;margin-left: 54rpx;'>
+        <view class='title'>
+          <view class='title_icon' style='background-color: #60b17a'></view>
+          <text>{{language.about_application}}</text>
+        </view>
+        <view class='formContent clearfix'>
+          <view class='fl' style="margin-right: 80rpx;width: 300rpx;">
+            <label style='display: inline-block;width: 100rpx;text-align: right;'>SAT1:</label>
+            <text>{{schoolData.school.SAT1}}</text>
+          </view>
+          <view class='fl' style="width: 300rpx;">
+            <label style='display: inline-block;width: 100rpx;text-align: right;'>SAT2:</label>
+            <text>{{schoolData.school.SAT2}}</text>
+          </view>
+          <view class='fl' style="margin-right: 80rpx;width: 300rpx;">
+            <label style='display: inline-block;width: 100rpx;text-align: right;'>ACT:</label>
+            <text>{{schoolData.school.ACT}}</text>
+          </view>
+          <view class='fl' style="width: 300rpx;">
+            <label style='display: inline-block;width: 100rpx;text-align: right;'>TOEFL:</label>
+            <text>{{schoolData.school.TOEFL}}</text>
+          </view>
+          <view class='fl'>
+            <label>{{language.applicants_accepptance_enrollment}}:</label>
+            <text>{{schoolData.school.applications + '/' + schoolData.school.enrolment + '/' + schoolData.school.study_proportion}}</text>
+          </view>
+        </view>
+      </view>
+      <view style='padding: 32rpx 0 12rpx 0;border-bottom: 1px solid #ddd;margin-left: 54rpx;'>
+        <view class='title'>
+          <view class='title_icon' style='background-color: #60b17a'></view>
+          <text>{{language.feedback_by_students}}</text>
+        </view>
+        <view class='formContent clearfix'>
+          <view>
+            <label>{{language.environment}}:</label>
+            <view class='starBox'>
+              <view style='vertical-align: middle;'>
+                <block>
+                  <image src='../../static/images/Star.png' class="star-image" wx:for="{{schoolData.commentStudentList.environment}}" wx:key="*this" />
+                  <image src='../../static/images/Star_c.png' class="star-image" wx:for="{{5 - schoolData.commentStudentList.environment}}" wx:key="*this" />
+                </block>
+              </view>
+              <view wx:if='{{schoolData.commentStudentList.environment != 0}}'>
+                <text>{{language.starMap[schoolData.commentStudentList.environment - 1]}}</text>
+              </view>
+              <view wx:else>
+                <text>{{language.no_score}}</text>
+              </view>
+            </view>
+          </view>
+          <view>
+            <label>{{language.faculty}}:</label>
+            <view class='starBox'>
+              <view style='vertical-align: middle;'>
+                <block>
+                  <image src='../../static/images/Star.png' class="star-image" wx:for="{{schoolData.commentStudentList.faculty}}" wx:key="*this" />
+                  <image src='../../static/images/Star_c.png' class="star-image" wx:for="{{5 - schoolData.commentStudentList.faculty}}" wx:key="*this" />
+                </block>
+              </view>
+              <view wx:if='{{schoolData.commentStudentList.faculty != 0}}'>
+                <text>{{language.starMap[schoolData.commentStudentList.faculty - 1]}}</text>
+              </view>
+              <view wx:else>
+                <text>{{language.no_score}}</text>
+              </view>
+            </view>
+          </view>
+          <view>
+            <label>{{language.facilities}}:</label>
+            <view class='starBox'>
+              <view style='vertical-align: middle;'>
+                <block>
+                  <image src='../../static/images/Star.png' class="star-image" wx:for="{{schoolData.commentStudentList.hardware_facilitie}}" wx:key="*this" />
+                  <image src='../../static/images/Star_c.png' class="star-image" wx:for="{{5 - schoolData.commentStudentList.hardware_facilitie}}" wx:key="*this" />
+                </block>
+              </view>
+              <view wx:if='{{schoolData.commentStudentList.hardware_facilitie != 0}}'>
+                <text>{{language.starMap[schoolData.commentStudentList.hardware_facilitie - 1]}}</text>
+              </view>
+              <view wx:else>
+                <text>{{language.no_score}}</text>
+              </view>
+            </view>
+          </view>
+          <view>
+            <label>{{language.activities}}:</label>
+            <view class='starBox'>
+              <view style='vertical-align: middle;'>
+                <block>
+                  <image src='../../static/images/Star.png' class="star-image" wx:for="{{schoolData.commentStudentList.extracurricular_activity}}" wx:key="*this" />
+                  <image src='../../static/images/Star_c.png' class="star-image" wx:for="{{5 - schoolData.commentStudentList.extracurricular_activity}}" wx:key="*this" />
+                </block>
+              </view>
+              <view wx:if='{{schoolData.commentStudentList.extracurricular_activity != 0}}'>
+                <text>{{language.starMap[schoolData.commentStudentList.extracurricular_activity - 1]}}</text>
+              </view>
+              <view wx:else>
+                <text>{{language.no_score}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style='padding: 32rpx 0 12rpx 0;margin-left: 54rpx;'>
+        <view class='title' style='padding-bottom: 0;'>
+          <view class='title_icon' style='background-color: #60b17a'></view>
+          <text>{{language.comments_by_alumni}}（{{schoolData.schoolComment.length}}{{language.pieces}}）</text>
+        </view>
+        <view>
+          <view class='conmmentBox' style='border-bottom: 1px solid #ddd;' wx:for="{{schoolData.schoolComment}}" wx:key="*this">
+            <image src="{{item.headUrl != '' ? sever + item.headUrl : morenImg}}" class='commentator' />
+            <view style='display: inline-block;margin-left: 18rpx;'>
+              <text class='conmmentPeople'>{{item.nickName}}</text>
+              <text>{{item.comment_time}}</text>
+            </view>
+            <text class='conmmentContent'>{{item.comment_details}}</text>
+            <view class='imgBox'>
+              <image data-list="{item.imgList}}" wx:for="{{item.imgList}}" wx:key="*this" data-src='{{item}}' src="{{item}}" bindtap='imgBig' />
+              <!-- <image src="../../static/images/school1.png"/>
+              <image src="../../static/images/school2.png" />
+              <image src="../../static/images/school3.png" />
+              <image src="../../static/images/school4.png" />
+              <image src="../../static/images/school5.png" /> -->
+            </view>
+            <text style='display: inline-block;margin-left: 86rpx;'>{{language.browse}}{{item.view_count}}{{language.times}}</text>
+            <view class="fr" style='margin-right: 30rpx;'>
+              <view class='rightBox' style='margin-right: 60rpx;'>
+                <image src='../../static/images/pinglun.png' class='pinglun' />
+                <text>{{item.num}}</text>
+              </view>
+              <view class='rightBox'>
+                <image src='../../static/images/no_zan.png' class='zan' />
+                <text>{{language.like}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='scrollBottomTips' wx:if="{{showBottomTips}}">{{language.no_more}}</view>
+  </view>
+</view>

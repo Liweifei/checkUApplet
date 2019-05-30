@@ -1,0 +1,25 @@
+<!--pages/my_zan/index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view wx:if="{{zanCount}}">
+      <view style='position: relative;height: 380rpx;'>
+        <image src='../../static/images/my_zan_bg.png' class='bgImg' />
+        <view class='headBox'>
+          <image src='{{headUrl}}' />
+          <text>{{userName}}</text>
+        </view>
+      </view>
+      <view class='contentBox'>
+        <view class='zanCount'>共获得
+          <text>{{zanCount}}</text>个赞</view>
+        <image src='../../static/images/zan.gif' class='heartBox' />
+        <text style='display: block;margin-bottom: 18rpx;'>您已超越大部分小伙伴了</text>
+        <text>继续努力</text>
+      </view>
+    </view>
+    <view class='noDataBox' wx:else>
+      <image src='../../static/images/my_zan_no_bg.png'/>
+      <text>{{language.no_zan_tips}}</text>
+    </view>
+  </view>
+</view>

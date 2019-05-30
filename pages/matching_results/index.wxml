@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class='progressBarBox clearfix'>
+      <view class="ballBox fl ballActive">
+        <view>1</view>
+        <label>{{language.require}}</label>
+      </view>
+      <view class="line fl lineActive"></view>
+      <view class="ballBox fl ballActive">
+        <view>2</view>
+        <label>{{language.option}}</label>
+      </view>
+      <view class="line fl lineActive"></view>
+      <view class="ballBox fl ballActive">
+        <view>3</view>
+        <label>{{language.consequence}}</label>
+      </view>
+    </view>
+    <view class='formContent' style='background-color: #f5f5f5'>
+      <view class="titleBox"> 
+        <text>{{language.number}}</text>
+        <text>{{language.school}}</text>
+        <text style='width: 300rpx;'>{{language.match_degree}}</text>
+      </view>
+      <view class='form3Content'>
+        <view class='clearfix'>
+          <view class='fl icon'>
+            <view></view>
+            <text style='display: inline-block; vertical-align: middle;'>{{language.dream}}</text>
+          </view>
+          <!-- <view class='fr checkAll'>查看全部</view> -->
+        </view>
+        <view wx:if="{{matchData.getMatchDream.length != 0}}">
+          <view class='block' wx:for="{{matchData.getMatchDream}}" wx:key="{{index}}">
+            <text class='number'>{{index + 1}}</text>
+            <text class='schoolName'>{{item.name}}</text>
+            <text style='font-size: 28rpx; color: #60b17a;'>100%</text>
+            <image src='../../static/images/more.png' class="more"/>
+          </view>
+        </view>
+        <view wx:else>{{language.no_school_tip}}</view>
+      </view>
+      <view class='form3Content'>
+        <view class='clearfix'>
+          <view class='fl icon'>
+            <view></view>
+            <text style='display: inline-block; vertical-align: middle;'>{{language.match}}</text>
+          </view>
+          <!-- <view class='fr checkAll'>查看全部</view> -->
+        </view>
+        <view wx:if="{{matchData.getMatching.length != 0}}">
+          <view class='block' wx:for="{{matchData.getMatching}}" wx:key="{{index}}">
+            <text class='number'>{{index + 1}}</text>
+            <text class='schoolName'>{{item.name}}</text>
+            <text style='font-size: 28rpx; color: #60b17a;'>100%</text>
+            <image src='../../static/images/more.png' class="more"/>
+          </view>
+        </view>
+        <view wx:else>{{language.no_school_tip}}</view>
+      </view>
+      <view class='form3Content'>
+        <view class='clearfix'>
+          <view class='fl icon'>
+            <view></view>
+            <text style='display: inline-block; vertical-align: middle;'>{{language.perfectly}}</text>
+          </view>
+          <!-- <view class='fr checkAll'>查看全部</view> -->
+        </view>
+        <view wx:if="{{matchData.getMatchSafe.length != 0}}">
+          <view class='block' wx:for="{{matchData.getMatchSafe}}" wx:key="{{index}}" id="{{item.id}}" bindtap='goDetail'>
+            <text class='number'>{{index + 1}}</text>
+            <text class='schoolName'>{{item.name}}</text>
+            <text style='font-size: 28rpx; color: #60b17a;'>100%</text>
+            <image src='../../static/images/more.png' class="more"/>
+          </view>
+        </view>
+        <view wx:else>{{language.no_school_tip}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class='progressBarBox clearfix'>
+      <view class="ballBox fl ballActive">
+        <view>1</view>
+        <label>{{language.require}}</label>
+      </view>
+      <view class="line fl lineActive"></view>
+      <view class="ballBox fl ballActive">
+        <view>2</view>
+        <label>{{language.option}}</label>
+      </view>
+      <view class="line fl"></view>
+      <view class="ballBox fl">
+        <view>3</view>
+        <label>{{language.consequence}}</label>
+      </view>
+    </view>
+    <view class='formContent form2'>
+      <view wx:for="{{language.selectData}}" wx:key="{{index}}" class='content selectContent'>
+        <label>{{language[item.name]}}</label>
+        <Select prop-array='{{item.list}}'></Select>
+      </view>
+      <button class='next' style='display: inline-block; margin-top: 40rpx;' bindtap='match'>{{language.intelligent}}</button>
+    </view>
+  </view>
+</view>

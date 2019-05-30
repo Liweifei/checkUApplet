@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class='progressBarBox clearfix'>
+      <view class="ballBox fl ballActive">
+        <view>1</view>
+        <label>{{language.require}}</label>
+      </view>
+      <view class="line fl"></view>
+      <view class="ballBox fl">
+        <view>2</view>
+        <label>{{language.option}}</label>
+      </view>
+      <view class="line fl"></view>
+      <view class="ballBox fl">
+        <view>3</view>
+        <label>{{language.consequence}}</label>
+      </view>
+    </view>
+    <view class='formContent'>
+      <checkbox-group bindchange="checkboxChange">
+        <view class="checkbox">
+          <checkbox value="SAT" checked="{{true}}"/>SAT
+          <input placeholder="{{language.fill_tip1}}" class='checkInput' value="{{sat}}" bindinput='satlVal'></input>
+        </view>
+        <view class="checkbox">
+          <checkbox value="SAT Essay" />SAT Essay
+          <input placeholder="{{language.fill_tip2}}" class='checkInput' value="{{satEssay}}" bindinput='satEssaylVal'></input>
+        </view>
+        <view class="checkbox">
+          <checkbox value="ACT" checked="{{true}}"/>ACT
+          <input placeholder="{{language.fill_tip3}}" class='checkInput' value="{{act}}" bindinput='actlVal'></input>
+        </view>
+      </checkbox-group>
+      <view style='padding: 44rpx 0 40rpx 0;box-sizing: border-box;'>
+        <view class="content">
+          <label>TOEFL</label>
+          <input placeholder="{{language.fill_tip4}}" class='checkInput' value="{{toefl}}" bindinput='toeflVal'></input>
+        </view>
+        <view class="content" style='margin-bottom: 0;'>
+          <label>专业1</label>
+          <Select prop-array='{{language.selectArray}}' bind:myget='getData' id="0"></Select>
+        </view>
+        <view>
+          <view wx:for="{{major}}" wx:key="{{index}}">
+            <Select prop-array='{{language[item.selectArray]}}' bind:myget='getData' style="margin-left: 282rpx;margin-top: 20rpx;" id="{{index + 1}}"></Select>
+            <image src='../../static/images/minus.png' class="minus" bindtap='minus' data-index="{{index}}"/>
+          </view>
+        </view>
+        <view class="content" style='margin-top: 40rpx;'>
+          <label></label>
+          <view style='display: inline-block;' bindtap='add'>
+            <image src='../../static/images/add.png' style='width: 28rpx;height: 28rpx;margin: 0 12rpx 0 30rpx;vertical-align: middle;' />
+            <text style='display: inline-block;vertical-align: middle;'>{{language.add_major}}</text>
+          </view>
+        </view>
+        <view class="content">
+          <label>GPA</label>
+          <input placeholder="{{language.fill_tip5}}" class='checkInput' value="{{gpa}}" bindinput='gpalVal'></input>
+        </view>
+        <view class="content">
+          <label>SAT2</label>
+          <radio-group class='rg' bindchange='radiochange'>
+            <!-- 事件绑定 -->
+            <view class="class_r_g" wx:for="{{classes_array}}" wx:key="{{index}}">
+              <radio id="{{item.name}}" value="{{language[item.name]}}" checked="{{item.checked}}" data-id='item.index'></radio>
+              <label class="label-2__text" for="{{language[item.name]}}">
+                <text class='{{item.checked ? "checkedt" : "normalt"}}'>{{language[item.name]}}</text>
+                <!-- 根据每一项的checked属性来切换点击radio中的文本的点击效果 -->
+              </label>
+            </view>
+          </radio-group>
+        </view>
+      </view>
+      <button class='next' bindtap='goSelect'>{{language.next}}</button>
+    </view>
+  </view>
+</view>

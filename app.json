@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/index",
+    "pages/home/index",
+    "pages/school/index",
+    "pages/school_detail/index",
+    "pages/school_comment/index",
+    "pages/activity/index",
+    "pages/subject_contest/index",
+    "pages/activity_detail/index",
+    "pages/activity_comment/index",
+    "pages/match/index",
+    "pages/intelligence_must/index",
+    "pages/intelligence_select/index",
+    "pages/matching_results/index",
+    "pages/my/index",
+    "pages/my_collect/index",
+    "pages/my_zan/index",
+    "pages/my_comment/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小生点U",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#999",
+    "selectedColor": "#000",
+    "list": [
+      {
+        "iconPath": "/static/images/bottom/home.png",
+        "selectedIconPath": "/static/images/bottom/home_active.png",
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "/static/images/bottom/school.png",
+        "selectedIconPath": "/static/images/bottom/school_active.png",
+        "pagePath": "pages/school/index",
+        "text": "学校"
+      },
+      {
+        "iconPath": "/static/images/bottom/activity.png",
+        "selectedIconPath": "/static/images/bottom/activity_active.png",
+        "pagePath": "pages/activity/index",
+        "text": "活动"
+      },
+      {
+        "iconPath": "/static/images/bottom/match.png",
+        "selectedIconPath": "/static/images/bottom/match_active.png",
+        "pagePath": "pages/match/index",
+        "text": "匹配"
+      },
+      {
+        "iconPath": "/static/images/bottom/my.png",
+        "selectedIconPath": "/static/images/bottom/my_active.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

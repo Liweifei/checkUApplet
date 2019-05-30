@@ -1,0 +1,44 @@
+<!--pages/my_collect/index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+        <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav" id="{{navItem.id}}" data-type="{{navItem.type}}">{{language[navItem.text]}}</view>
+      </block>
+    </scroll-view>
+    <!-- 页面内容 -->
+    <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+      <swiper-item wx:for="{{[0,1,2,3,4,5,6,7,8]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+        <view class='searchBox'>
+          <icon type='search' size='13'></icon>
+          <input placeholder='{{language.searchText}}' value='{{searchText}}' bindconfirm='search'></input>
+        </view>
+        <view class='contentList'>
+          <view wx:for="{{contentData}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item" id="{{item.id}}" class="clearfix" bindtap='goDetail'>
+            <image src="{{item.image_url != '' ? sever + item.image_url : '../../static/images/default.png'}}" class='schoolImg fl'></image>
+            <view class="schooldesc fl">
+              <view>{{item.name}}</view>
+              <view>{{item.name_en}}</view>
+              <view>{{language.collect_date}}:{{m1.format(item.create_time)}}</view>
+            </view>
+            <view class="fr" data-index='{{index}}'>
+              <image src="../../static/images/more.png" style='width: 12rpx;height: 22rpx;'></image>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<wxs module="m1">
+  function format(ts) {
+    var date = getDate(ts);
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? ('0' + m) : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return y + '-' + m + '-' + d;
+  }
+  module.exports.format = format
+</wxs>

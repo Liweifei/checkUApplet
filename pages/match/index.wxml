@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <image src='../../static/images/match_bg.png' class='matchBg' />
+    <text class="title">{{language.match_tip}}</text>
+    <text class='tips'>{{language.match_tip2}}</text>
+    <navigator url="/pages/intelligence_must/index">
+      <button class='publish'>{{language.match_btn}}</button>
+    </navigator>
+  </view>
+</view>

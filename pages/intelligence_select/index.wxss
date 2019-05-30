@@ -1,0 +1,223 @@
+/**index.wxss**/
+
+.page-body {
+  background-color: #fff;
+  height: 1334rpx;
+  overflow: hidden;
+}
+
+/* 进度条 */
+
+.progressBarBox {
+  width: 100%;
+  height: 148rpx;
+  background-color: #60b17a;
+  padding: 28rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ballBox:first-child {
+  margin-left: 0;
+}
+
+.ballBox>view {
+  width: 52rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  border-radius: 50%;
+  font-size: 32rpx;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(96, 177, 122, 0.5);
+  margin: 0 auto 10rpx auto;
+}
+
+.ballBox>label {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.ballBox {
+  width: 164rpx;
+  margin-left: -54rpx;
+  text-align: center;
+}
+
+.ballActive>view {
+  background-color: #fff;
+  color: #60b17a;
+}
+
+.ballActive>label {
+  color: #fff;
+}
+
+.line {
+  width: 200rpx;
+  height: 4rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 26rpx;
+  margin-left: -54rpx;
+}
+
+.lineActive {
+  background: #fff;
+}
+
+
+/* 表单 */
+
+.formContent {
+  font-size: 28rpx;
+  color: #333;
+  background-color: #fff;
+}
+
+checkbox-group {
+  margin-left: 52rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.checkbox {
+  margin-bottom: 40rpx;
+  line-height: 52rpx;
+}
+
+.checkbox:first-child {
+  padding-top: 44rpx;
+}
+
+.checkInput {
+  display: inline-block;
+  width: 422rpx;
+  font-size: 26rpx;
+  color: #ccc;
+  vertical-align: bottom;
+  margin-left: 36rpx;
+}
+
+/* 修改原有样式 */
+
+/*checkbox 选项框大小  */
+
+checkbox {
+  vertical-align: top;
+}
+
+checkbox .wx-checkbox-input {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 16rpx;
+}
+
+/*checkbox选中后样式  */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #60b17a;
+}
+
+/*checkbox选中后图标样式  */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+select {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 34rpx;
+}
+
+.content {
+  margin-bottom: 40rpx;
+}
+
+.content>label {
+  display: inline-block;
+  width: 90rpx;
+  vertical-align: middle;
+  margin: 0 40rpx 0 54rpx;
+}
+
+.content input {
+  vertical-align: middle;
+}
+
+/* 
+   注意点：columns分列后，最好使用margin-bottom控制行间距，
+   margin-top会导致第一项与后面的项不一致，很丑
+  */
+
+radio-group {
+  display: inline-block;
+  margin-left: 20rpx;
+}
+
+radio {
+  transform: scale(0.6);
+}
+
+.class_r_g {
+  display: inline-block;
+  text-align: center;
+}
+
+.class_r_g:first-child {
+  margin-right: 84rpx;
+}
+
+/* radio文本的点击效果  */
+
+.checkedt {
+  color: #40e0d0;
+  font-size: 26rpx;
+}
+
+/* 
+   radio文本的默认效果  
+   注意点：组件本身的高度不能高于组件所在行的行高，否则会发现组件的好似被切割成2块或多块了
+*/
+
+.normalt {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.next {
+  width: 690rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #60b17a;
+  border-radius: 12rpx;
+  margin: 0 30rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.selectContent>label {
+  font-size: 28rpx;
+  color: #333;
+  width: 190rpx;
+  text-align: right;
+}
+
+.form2 {
+  padding: 40rpx 0 0 0;
+  box-sizing: border-box;
+  height: 1334rpx;
+}
+
+.form2 select {
+  margin: 0;
+}

@@ -1,0 +1,61 @@
+/* school.wxss */
+.school button {
+  padding: 0 14rpx;
+  font-size: 26rpx;
+  background-color:#f5f5f5;
+  margin-right: 20rpx
+}
+.school .button-hover {
+  color:rgba(255, 255, 255, 1);
+}
+.school button::after {
+  border: none
+}
+.school .filterCondition {
+  padding: 24rpx 30rpx;
+  background: #fff;
+  border-top:1rpx solid #f6f6f6;
+  margin-bottom:20rpx
+}
+.school .filterCondition .filterConTop {
+  margin-bottom: 28rpx
+}
+.school .selected {
+  background: #60b17a;
+  color: #fff
+}
+.school .schoolsList {
+  background: #fff;
+  padding: 28rpx;
+}
+.school .schoolsList > view {
+  margin-bottom: 20rpx
+}
+.school .schoolImg {
+  width:260rpx;
+  height:150rpx;
+}
+.school .schooldesc {
+  margin-left: 20rpx;
+  font-size: 28rpx
+}
+.school .schooldesc view:nth-child(2) {
+  color: #999;
+  margin: 10rpx 0 20rpx 0
+}
+.school .schooldesc view:nth-child(3) {
+  color: #666;
+  font-size:24rpx
+}
+.school .collection {
+  width: 40rpx;
+  height: 36rpx;
+  display: block;
+  margin: 0 auto 12rpx auto;
+}
+.school .schooldesc + view {
+  text-align: center;
+  font-size: 20rpx;
+  margin-top: 28rpx;
+  width: 130rpx;
+}

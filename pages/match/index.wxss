@@ -1,0 +1,38 @@
+/**index.wxss**/
+.page-body {
+  background-color: #fff;
+  height: 1334rpx;
+  overflow: hidden;
+  border-top:1rpx solid #f6f6f6;
+}
+.matchBg {
+  display: block;
+  width: 374rpx;
+  height: 300rpx;
+  margin: 280rpx auto 100rpx auto;
+}
+.title {
+  display: block;
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+}
+.tips {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  margin: 40rpx 0 80rpx 0;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.publish {
+  width: 690rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #60b17a;
+  border-radius: 12rpx;
+  margin: 0 30rpx;
+  color: #fff;
+  font-size: 32rpx;
+}

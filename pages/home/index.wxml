@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <swiper class='swipeBox' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" indicator-color="rgba(96, 192, 127, .5)" indicator-active-color="rgba(96, 192, 127, 1)">
+      <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <view class='infoBox'>
+            <image src="{{sever + item.img_url}}" mode="scaleToFill" class="slide-image" width="414" height="150" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='tabBox clearfix'>
+      <view class="fl tab-item" wx:for="{{tabData}}" wx:key="{{item.index}}" bindtap='tabItem' data-index="{{item.index}}">
+        <image src="{{item.imgSrc}}"></image>
+        <text>{{language[item.label]}}</text>
+      </view>
+    </view>
+    <view class='page-content'>
+      <block wx:for="{{contentData}}" wx:for-item="i" wx:key="{{index}}">
+        <view class='title'>
+          <view></view>
+          <text>{{i.toptype}}</text>
+        </view>
+        <view class='content'>
+          <navigator url='/pages/school_detail/index?id={{j.id}}' wx:for="{{i.data}}" wx:for-item="j" wx:key="{{index}}" wx:for-index="index" class='schoolList'>
+            <image src="{{finishLoad ? sever + j.image_url : defaultImg}}" class='schoolImg' bindload='imgLoad'></image>
+            <view style='display: inline-block;vertical-align: top;margin-top: 28rpx;'>
+              <text>{{j.name}}</text>
+              <text class="EnglishName">{{j.name_en}}</text>
+            </view>
+            <image src="../../static/images/NO{{index + 1}}.png" class='number'></image>
+          </navigator>
+        </view>
+      </block>
+    </view>
+    <view class='scrollBottomTips' wx:if="{{showBottomTips}}">{{language.no_more}}</view>
+  </view>
+  <!-- <view class='switchLanguage'></view> -->
+</view>

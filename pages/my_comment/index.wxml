@@ -1,0 +1,39 @@
+<!--pages/my_comment/index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class='tabBox'>
+      <text wx:for="{{tabs}}" wx:key="{{index}}" id="{{index}}" data-type="{{item.type}}" class="{{activeIndex == index ? 'active' : ''}}" bindtap="tabClick">{{language[item.name]}}</text>
+      <view class="navbar" style="transform: translateX({{sliderOffset}}rpx); -webkit-transform: translateX({{sliderOffset}}rpx);"></view>
+    </view>
+    <view class='contentBox' wx:if="{{activeIndex == 0}}">
+      <view style='padding: 28rpx 0 32rpx 0;box-sizing: border-box;border-bottom:1px solid #ddd;' wx:for="{{contentData}}" wx:key='*this'>
+        <image src='{{item.replyurl ? sever + item.replyurl: morenImg}}' class='headImg' />
+        <view class='dateBox'>
+          <text class='name'>{{item.replyname}}</text>
+          <text>{{item.comment_time}}</text>
+        </view>
+        <view class='text'>{{item.comment_details}}</view>
+        <view style='width: 690rpx;background: #e9e9e9;position: relative;' class='clearfix'>
+          <view class='triangle'></view>
+          <image src='{{item.userurl ? sever + item.userurl: morenImg}}' class='headImg fl' style='margin: 20rpx 18rpx 20rpx 20rpx;' />
+          <view class='contentText fl'>
+            <text style='color: #e79b2e;'>{{item.username}}:</text>
+            <text>{{item.mycomment}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='contentBox' wx:if="{{activeIndex == 1}}">
+      <view style='padding: 28rpx 0 32rpx 0;box-sizing: border-box;border-bottom:1px solid #ddd;' wx:for="{{contentData}}" wx:key='*this'>
+        <image src='{{item.userurl ? sever + item.userurl: morenImg}}' class='headImg' />
+        <view class='dateBox'>
+          <text class='name'>{{item.nickname}}</text>
+          <text>{{item.comment_time}}</text>
+          <text style='display:inline-block;margin-left:24rpx'>评论了</text>
+          <text style='color:#60b17a;' id='{{item.school_id}}' bindtap='goSchoolDetail'>{{item.name}}</text>
+        </view>
+        <view class='text' style='margin-bottom: 0;'>{{item.comment_details}}</view>
+      </view>
+    </view>
+  </view>
+</view>

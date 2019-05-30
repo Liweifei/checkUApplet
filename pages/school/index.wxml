@@ -1,0 +1,28 @@
+<!--school.wxml-->
+<view class="school">
+  <view class="filterCondition">
+    <view>
+      <view class="clearfix filterConTop">
+        <button class="{{item.id === schoolSelect ? 'selected':''}} fl" wx:for="{{schoolData}}" wx:key="{{item.id}}" bindtap="schooltab" data-select="{{item.id}}">{{language[item.label]}}</button>
+      </view>
+      <view class="clearfix">
+        <button class="{{item.id === listSelect ? 'selected':''}} fl" wx:for="{{schoolList}}" wx:key="{{item.id}}" bindtap="listtab" data-select="{{item.id}}" data-val="{{item.value}}">{{language[item.label]}}</button>
+      </view>
+    </view>
+  </view>
+  <view class="schoolsList">
+    <view wx:for="{{contentData}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item" id="{{item.id}}" class="clearfix" bindtap='goDetail'>
+      <image src="{{finishLoad ? sever + item.image_url : defaultImg}}" class='schoolImg fl' bindload='imgLoad'></image>
+      <view class="schooldesc fl">
+        <view>{{item.name}}</view>
+        <view>{{item.name_en}}</view>
+        <view>No.{{index + 1}}</view>
+      </view>
+      <view class="fr" catchtap="collectionbtn" data-index='{{index}}' id="{{item.id}}" data-cid="{{item.cid}}">
+        <image src="../../static/images/collection.png" class="collection" wx:if="{{item.isCollect}}"/>
+        <image src="../../static/images/no_collection.png" class="collection" wx:else/>
+        <text>{{item.isCollect ? language.collect : language.collected}}</text>
+      </view>
+    </view>
+  </view>
+</view>

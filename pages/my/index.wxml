@@ -1,0 +1,55 @@
+<!--pages/my/index.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class='headTip'>
+      <image src='../../static/images/my_bg.png' class='bgImg'></image>
+      <image mode="scaleToFill" src='{{headUrl}}' wx:if="{{headUrl}}"></image>
+      <image mode="scaleToFill" src='../../static/images/moren.png' wx:if="{{!headUrl}}"></image>
+      <view class='name' wx:if="{{headUrl}}">{{userName}}</view>
+      <view class='name' wx:if="{{!headUrl}}">{{language.no_head_tips}}</view>
+      <image src='../../static/images/setting.png' class='setting fr' bindtap="toggleDialog" style='right: 52rpx;' />
+    </view>
+    <!-- 导航列表 -->
+    <view class='list' style='background-color: #fff'>
+      <navigator wx:for="{{myListData}}" wx:key="{{index}}" url="{{item.goUrl}}" hover-class="navigator-hover clearfix">
+        <image class='icon fl' mode='scaleToFill' src='{{item.iconUrl}}'></image>
+        <span class="fl">{{language[item.title]}}</span>
+        <image class='iconGo fr' mode='scaleToFill' src='../../static/images/more.png'></image>
+      </navigator>
+    </view>
+    <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+      <view class="free-dialog__mask" bindtap="toggleDialog" />
+      <view class="free-dialog__container">
+        <view>
+          <view class="changeTitle">
+            <view style='padding-top: 16rpx;'>选择语言</view>
+            <view>Choose Language</view>
+          </view>
+          <form bindsubmit='submit' bindreset="reset">
+            <radio-group class='free-radios' bindchange="radioChange">
+              <label class="free-radio" wx:for="{{items}}" wx:key="{{items}}" data-id="{{index}}">
+                <radio value="{{item.name}}" name="{{item.value}}" checked="{{item.checked}}"></radio>
+                <label class="free-text">{{item.value}}</label>
+              </label>
+            </radio-group>
+          </form>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 时间戳转换 -->
+<wxs module="m1">
+  function format(t) {
+    var times = t.split('.')
+    var data = times[0].replace('T', '/')
+    var time = data.split('/')
+    var hArr = time[1].split(':')
+    h = hArr[0] - 0 + 8
+    if (h >= 24) {
+      h = 0 + h - 24
+    }
+    return time[0] + ' ' + h + ':' + hArr[1] + ':' + hArr[2]
+  }
+  module.exports.format = format
+</wxs>

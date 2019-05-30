@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <block>
+    <button wx:if="{{!hasUserInfo && canIUse}}" type="primary" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">授权获取用户信息</button>
+    <button bindtap='navigateBack' type='default'>返回首页</button>
+  </block>
+</view>

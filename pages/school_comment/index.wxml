@@ -1,0 +1,55 @@
+<!--school_comment.wxml-->
+<view class="container">
+  <view class="page-body">
+    <view class='baseInfo clearfix'>
+      <view class='info'>
+        <image src="{{sever + baseInfo.image_url}}" />
+        <text class='name'>{{baseInfo.name}}</text>
+        <text>{{baseInfo.name_en}}</text>
+      </view>
+      <!-- <view class='collection' bindtap='collection'>
+        <image src="../../static/images/collection.png" wx:if="{{isCollection}}" />
+        <image src="../../static/images/no_collection.png" wx:else/>
+        <text>{{isCollection ? language.collect : language.collected}}</text>
+      </view> -->
+    </view>
+    <view class='schoolScore'>
+      <view class='titleBox'>
+        <view></view>
+        <text style='vertical-align: middle;'>{{language.college_environment}}</text>
+      </view>
+      <view class='pingFenBox' wx:for='{{evaluations}}' wx:for-item='i' wx:key='{{index}}'>
+        <label>{{language[i.name]}}:</label>
+        <view class='starBox'>
+          <view style='vertical-align: middle;' bindtap="myStarChoose" data-index='{{i.id}}'>
+            <block wx:for='{{starMap}}' wx:for-item='j' wx:key="*this">
+              <image src='../../static/images/Star.png' class="star-image" wx:if="{{i.star >= index + 1}}" data-star="{{index + 1}}" />
+              <image src='../../static/images/Star_c.png' class="star-image" wx:if="{{i.star < index + 1}}" wx:key="*this" data-star="{{index + 1}}" />
+            </block>
+          </view>
+          <view wx-if='{{i.star != 0}}'>
+            <text style='margin-left: 20rpx;'>{{language.starMap[i.star - 1]}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='evaluateBox'>
+      <textarea class="weui-textarea" bindinput='bindTextArea' placeholder="{{language.school_tips}}" value="{{textareaValue}}" bindinput='inputVal'/>
+      <view class="weui-uploader">
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for="{{files}}" wx:key="*this">
+              <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" data-index="{{index}}" bindlongpress="deleteImg" />
+              </view>
+            </block>
+          </view>
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class='publish' bindtap='submitComment'>{{language.publish_comment}}</button>
+  </view>
+</view>

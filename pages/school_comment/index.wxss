@@ -1,0 +1,123 @@
+/**school_comment.wxss**/
+/* 头部信息 */
+.baseInfo {
+  width: 100%;
+  padding: 28rpx 0;
+  background-color: #fff;
+}
+
+.collection {
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 56rpx;
+  font-size: 20rpx;
+  color: #333;
+  width: 96rpx;
+  text-align: center;
+}
+
+.collection image {
+  display: block;
+  width: 40rpx;
+  height: 36rpx;
+  margin: 0 auto 12rpx auto;
+}
+
+.info {
+  font-size: 28rpx;
+  color: #999;
+  float: left;
+  margin-left: 30rpx;
+}
+
+.info>image {
+  width: 120rpx;
+  height: 120rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.info>text {
+  display: block;
+  width: 220rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  color: #333;
+  margin: 10rpx 0;
+}
+
+/* 学校评分 */
+.schoolScore {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 32rpx 54rpx 32rpx 30rpx;
+}
+
+.titleBox {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.titleBox>view {
+  display: inline-block;
+  width: 8rpx;
+  height: 28rpx;
+  background-color: #60b17a;
+  border-radius: 30rpx;
+  vertical-align: middle;
+  margin-right: 16rpx;
+}
+
+.pingFenBox {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 30rpx;
+}
+
+.star-image {
+  width: 32rpx;
+  height: 32rpx;
+  padding-right: 12rpx;
+}
+
+.starBox {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+
+.starBox>view {
+  display: inline-block;
+}
+
+/* 评论内容 */
+.evaluateBox {
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx 0 30rpx;
+}
+
+.evaluateBox>textarea {
+  height: 160rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.publish {
+  width: 690rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #60b17a;
+  border-radius: 12rpx;
+  margin-top: 80rpx;
+}
+.weui-uploader__bd {
+  margin-top: 0rpx;
+}

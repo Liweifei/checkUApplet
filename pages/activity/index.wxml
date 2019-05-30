@@ -1,0 +1,15 @@
+<!--activity.wxml-->
+<view class="container activityBox">
+  <view class="contentContainer">
+    <view class='searchBox'>
+      <icon type='search' size='13'></icon>
+      <input placeholder='{{language.searchText}}'></input>
+    </view>
+    <view class="selectContent">
+      <view wx:for="{{activityData}}" wx:key="*this" bindtap='goDetail' data-index="{{index}}" id="{{item.id}}">
+        <image src="{{sever + item.image_url}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
