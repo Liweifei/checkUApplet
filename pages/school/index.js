@@ -11,15 +11,15 @@ Page({
   data: {
     sever: app.globalData.serverUrl,
     schoolData: [{
-        id: 1,
+        id: 0,
         label: 'university'
       },
       {
-        id: 2,
+        id: 1,
         label: 'college'
       },
       {
-        id: 3,
+        id: 2,
         label: 'summer_university'
       }
     ],
@@ -40,7 +40,7 @@ Page({
       }
     ],
     listSelect: 1,
-    schoolSelect: 1,
+    schoolSelect: 0,
     currentListVal: 'hot',
     currentCid: '', // 当前cid
     // 列表内容

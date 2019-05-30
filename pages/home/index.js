@@ -15,17 +15,17 @@ Page({
         interval: 3000, //间隔时间
         duration: 3000, //滑动时间
         tabData: [{
-                index: 1,
+                index: 0,
                 imgSrc: '../../static/images/comprehensiveness.png',
                 label: 'university'
             },
             {
-                index: 2,
+                index: 1,
                 imgSrc: '../../static/images/sciences.png',
                 label: 'college'
             },
             {
-                index: 3,
+                index: 2,
                 imgSrc: '../../static/images/summer.png',
                 label: 'summer_university'
             }
