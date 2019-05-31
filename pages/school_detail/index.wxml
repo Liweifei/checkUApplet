@@ -188,7 +188,7 @@
         </view>
         <view>
           <view class='conmmentBox' style='border-bottom: 1px solid #ddd;' wx:for="{{schoolData.schoolComment}}" wx:key="*this">
-            <image src="{{item.headUrl != '' ? sever + item.headUrl : morenImg}}" class='commentator' />
+            <image src="{{item.headUrl != '' ? item.headUrl : morenImg}}" class='commentator' />
             <view style='display: inline-block;margin-left: 18rpx;'>
               <text class='conmmentPeople'>{{item.nickName}}</text>
               <text>{{item.comment_time}}</text>
