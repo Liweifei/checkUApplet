@@ -106,19 +106,26 @@ Page({
   // 接口调用成功或失败执行函数
   getSuccess(res) {
     if (res.code === '200') {
-        res.data.commentStudentList=[]
         var commentStudentList = res.data.commentStudentList[0]
         if (commentStudentList != null) {
             Object.keys(commentStudentList).forEach((item) => {
                 commentStudentList[item] = Number(commentStudentList[item])
             })
             res.data.commentStudentList = commentStudentList
+        }else{
+            res.data.commentStudentList={
+                environment:0,
+                faculty:0,
+                hardware_facilitie:0,
+                extracurricular_activity:0,
+            }
         }
       res.data.school = res.data.school[0]
       res.data.school.isCollect = res.data.school.isCollect === 'true' ? true : false
       this.setData({
         schoolData: res.data
       })
+      console.log(this.data.schoolData)
     }
   },
   fail() {

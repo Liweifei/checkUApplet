@@ -35,7 +35,7 @@
     </view>
     <view class='evaluateBox'>
       <textarea class="weui-textarea" bindinput='bindTextArea' placeholder="{{language.school_tips}}" value="{{textareaValue}}" bindinput='inputVal'/>
-      <view class="weui-uploader">
+      <!-- <view class="weui-uploader">
         <view class="weui-uploader__bd">
           <view class="weui-uploader__files" id="uploaderFiles">
             <block wx:for="{{files}}" wx:key="*this">
@@ -48,7 +48,7 @@
             <view class="weui-uploader__input" bindtap="chooseImage"></view>
           </view>
         </view>
-      </view>
+      </view> -->
     </view>
     <button class='publish' bindtap='submitComment'>{{language.publish_comment}}</button>
   </view>
