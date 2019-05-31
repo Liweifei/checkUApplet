@@ -21,10 +21,11 @@
       <view class='pingFenBox' wx:for='{{evaluations}}' wx:for-item='i' wx:key='{{index}}'>
         <label>{{language[i.name]}}:</label>
         <view class='starBox'>
-          <view style='vertical-align: middle;' bindtap="myStarChoose" data-index='{{i.id}}'>
+          <view style='vertical-align: middle;'>
             <block wx:for='{{starMap}}' wx:for-item='j' wx:key="*this">
-              <image src='../../static/images/Star.png' class="star-image" wx:if="{{i.star >= index + 1}}" data-star="{{index + 1}}" />
-              <image src='../../static/images/Star_c.png' class="star-image" wx:if="{{i.star < index + 1}}" wx:key="*this" data-star="{{index + 1}}" />
+              <!-- <image src='../../static/images/Star.png' class="star-image" wx:if="{{i.star >= index + 1}}" data-star="{{index + 1}}" />
+              <image src='../../static/images/Star_c.png' class="star-image" wx:if="{{i.star < index + 1}}" wx:key="*this" data-star="{{index + 1}}" /> -->
+              <image src='{{(i.star < index + 1)?Star_c:Star}}' bindtap="myStarChoose"  data-index='{{i.id}}' class="star-image" wx:key="*this" data-star="{{index + 1}}" />
             </block>
           </view>
           <view wx-if='{{i.star != 0}}'>

@@ -31,6 +31,8 @@ Page({
         star: 0
       }
     ],
+    Star_c:"../../static/images/Star_c.png",
+      Star:"../../static/images/Star.png",
     textareaValue: '',
     baseInfo: {}, // 头部基本信息
     schoolId: '', // 当前学校id
@@ -160,6 +162,7 @@ Page({
     call.request('/schoolcomment/add', {
       schoolId: this.data.schoolId,
       userId: app.globalData.userid,
+      parentId: -1,
       environment: environment,
       faculty: faculty,
       hardwareFacilitie: hardwareFacilitie,

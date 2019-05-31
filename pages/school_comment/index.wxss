@@ -94,6 +94,9 @@
 .starBox>view {
   display: inline-block;
 }
+starBox .starItem{
+    display: inline-block;
+}
 
 /* 评论内容 */
 .evaluateBox {
