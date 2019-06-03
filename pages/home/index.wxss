@@ -1,39 +1,39 @@
 /**index.wxss**/
 
 .page-body {
-  position: relative;
-  background-color: #fff;
+    position: relative;
+    background-color: #fff;
 }
 
 /* 轮播图 */
 
 .swipeBox {
-  height: 360rpx;
+    height: 360rpx;
 }
 
 .infoBox {
-  position: relative;
-  width: 100%;
-  height: 360rpx;
+    position: relative;
+    width: 100%;
+    height: 360rpx;
 }
 
 .infoBox image {
-  display: block;
-  width: 100%;
-  height: 360rpx;
+    display: block;
+    width: 100%;
+    height: 360rpx;
 }
 
 /* tab */
 
 .tabBox {
-  width: 100%;
-  height: 150rpx;
-  text-align: center;
-  overflow: hidden;
-  font-size: 28rpx;
-  color: #333;
-  padding: 0 75rpx;
-  box-sizing: border-box;
+    width: 100%;
+    height: 150rpx;
+    text-align: center;
+    overflow: hidden;
+    font-size: 28rpx;
+    color: #333;
+    padding: 0 75rpx;
+    box-sizing: border-box;
 }
 
 /* .tab-item:first-child {
@@ -41,90 +41,109 @@
 } */
 
 .tab-item {
-  width: 200rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    width: 200rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .tabBox image {
-  width: 80rpx;
-  height: 80rpx;
-  display: block;
-  margin: 12rpx auto 16rpx auto;
+    width: 80rpx;
+    height: 80rpx;
+    display: block;
+    margin: 12rpx auto 16rpx auto;
 }
 
 /* 内容区域 */
 
 .page-content {
-  color: #333;
+    color: #333;
 }
 
 .page-content .title {
-  margin: 40rpx 0 30rpx 0;
+    margin: 40rpx 0 30rpx 0;
 }
 
 .page-content .title>view {
-  display: inline-block;
-  width: 8rpx;
-  height: 28rpx;
-  margin: 0 12rpx 0 30rpx;
-  background-color: #60b17a;
-  border-radius: 30rpx;
-  vertical-align: middle;
+    display: inline-block;
+    width: 8rpx;
+    height: 28rpx;
+    margin: 0 12rpx 0 30rpx;
+    background-color: #60b17a;
+    border-radius: 30rpx;
+    vertical-align: middle;
 }
 
 .page-content .title>text {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 navigator.schoolList {
-  display: block;
-  width: auto;
-  font-size: 28rpx;
-  margin-bottom: 20rpx;
+    display: block;
+    width: auto;
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.schoolList .rightInfo {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 290rpx;
+    margin-top: 28rpx;
+}
+
+.nameCn {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .EnglishName {
-  display: block;
-  color: #999;
-  margin-top: 24rpx;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    color: #999;
+    margin-top: 24rpx;
 }
 
 .schoolImg {
-  width: 260rpx;
-  height: 150rpx;
-  margin: 0 20rpx 0 30rpx;
+    width: 260rpx;
+    height: 150rpx;
+    margin: 0 20rpx 0 30rpx;
 }
 
 .number {
-  width: 58rpx;
-  height: 60rpx;
-  float: right;
-  margin: 45rpx 68rpx 0 0;
+    width: 58rpx;
+    height: 60rpx;
+    float: right;
+    margin: 45rpx 68rpx 0 0;
 }
 
 .scrollBottomTips {
-  text-align: center;
-  font-size: 24rpx;
-  color: #999;
-  padding: 40rpx 0 60rpx 0;
-  background-color: #fff;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+    padding: 40rpx 0 60rpx 0;
+    background-color: #fff;
 }
 
 /* 切换语言 */
 
 .switchLanguage {
-  width: 750rpx;
-  height: 1206rpx;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  left: 0;
+    width: 750rpx;
+    height: 1206rpx;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 navigator {
-  height: auto;
-  display: inline-block;
-  width: 33%;
+    height: auto;
+    display: inline-block;
+    width: 33%;
 }

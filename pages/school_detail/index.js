@@ -34,13 +34,15 @@ Page({
     this.setLanguage();
     event.on("languageChanged", this, this.setLanguage);
     // 获取详情
-    call.getData('/school/school_detail', {
-      schoolId: options.id,
-      userId: app.globalData.userid
-    }, this.getSuccess, this.fail);
   },
   onShow: function() {
     // 设置语言部分
+    if(!!this.data.schoolId){
+        call.getData('/school/school_detail', {
+            schoolId: this.data.schoolId,
+            userId: app.globalData.userid
+        }, this.getSuccess, this.fail);
+    }
     if (this.data.shouldChangeTitle) {
       var index = wx.getStorageSync('langIndex') || 0
       wx.T.setNavigationBarTitle(index, this.data.navigationBarTitles);
@@ -81,7 +83,6 @@ Page({
   imgBig: function(event) {
     var src = event.currentTarget.dataset.src; //获取data-src
     var imgList = [event.currentTarget.dataset.src]; //获取data-list
-    console.log(src, imgList)
     //图片预览
     wx.previewImage({
       current: src, // 当前显示图片的http链接
@@ -125,7 +126,6 @@ Page({
       this.setData({
         schoolData: res.data
       })
-      console.log(this.data.schoolData)
     }
   },
   fail() {

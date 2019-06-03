@@ -25,8 +25,8 @@
         <view class='content'>
           <navigator url='/pages/school_detail/index?id={{j.id}}' wx:for="{{i.data}}" wx:for-item="j" wx:key="{{index}}" wx:for-index="index" class='schoolList'>
             <image src="{{finishLoad ? sever + j.image_url : defaultImg}}" class='schoolImg' bindload='imgLoad'></image>
-            <view style='display: inline-block;vertical-align: top;margin-top: 28rpx;'>
-              <text>{{j.name}}</text>
+            <view class='rightInfo'>
+              <text class='nameCn'>{{j.name}}</text>
               <text class="EnglishName">{{j.name_en}}</text>
             </view>
             <image src="../../static/images/NO{{index + 1}}.png" class='number'></image>

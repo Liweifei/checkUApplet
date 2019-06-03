@@ -58,21 +58,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      schoolSelect: app.globalData.tab_id
-    })
     //来确保用户退出之后重新进入小程序时仍能正常显示当前使用的语言。
     this.setLanguage();
     event.on("languageChanged", this, this.setLanguage);
-    // 获取列表
-    call.getData('/school/getSchoolListByType', {
-      ranking: this.data.currentListVal,
-      schoolType: this.data.schoolSelect,
-      userId: app.globalData.userid
-    }, this.getSuccess, this.fail);
   },
   onShow: function() {
     // 设置语言部分
+    this.setData({
+      schoolSelect: app.globalData.tab_id
+    })
+      // 获取列表
+      call.getData('/school/getSchoolListByType', {
+          ranking: this.data.currentListVal,
+          schoolType: this.data.schoolSelect,
+          userId: app.globalData.userid
+      }, this.getSuccess, this.fail);
     if (this.data.shouldChangeTitle) {
       var index = wx.getStorageSync('langIndex') || 0
       wx.T.setNavigationBarTitle(index, this.data.navigationBarTitles);

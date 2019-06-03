@@ -30,14 +30,16 @@ Page({
     //来确保用户退出之后重新进入小程序时仍能正常显示当前使用的语言。
     this.setLanguage();
     event.on("languageChanged", this, this.setLanguage);
-    // 获取详情
-    call.getData('/activitydetails/selectActivityById', {
-      activity_id: options.id,
-      userId: app.globalData.userid
-    }, this.getSuccess, this.fail);
   },
   onShow: function() {
     // 设置语言部分
+      if (!!this.data.currenActivityId){
+          // 获取详情
+          call.getData('/activitydetails/selectActivityById', {
+              activity_id: this.data.currenActivityId,
+              userId: app.globalData.userid
+          }, this.getSuccess, this.fail);
+      }
     if (this.data.shouldChangeTitle) {
       var index = wx.getStorageSync('langIndex') || 0
       wx.T.setNavigationBarTitle(index, this.data.navigationBarTitles);
