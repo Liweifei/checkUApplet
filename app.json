@@ -28,7 +28,7 @@
   "tabBar": {
     "backgroundColor": "#ffffff",
     "color": "#999",
-    "selectedColor": "#000",
+    "selectedColor": "#60b17a",
     "list": [
       {
         "iconPath": "/static/images/bottom/home.png",
